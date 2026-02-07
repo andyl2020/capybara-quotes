@@ -1,13 +1,13 @@
 const CACHE_NAME = "capybara-quotes-v1";
 const PRECACHE_URLS = [
-  "/",
-  "/manifest.json",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png",
-  "/icons/icon-512-maskable.png",
-  "/icons/icon-180.png",
-  "/images/capybara-a.jpg",
-  "/images/capybara-b.jpg"
+  "./",
+  "./manifest.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-512-maskable.png",
+  "./icons/icon-180.png",
+  "./images/capybara-a.jpg",
+  "./images/capybara-b.jpg"
 ];
 
 self.addEventListener("install", (event) => {
@@ -45,7 +45,7 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(() => {
           if (event.request.mode === "navigate") {
-            return caches.match("/");
+            return caches.match("./");
           }
           return cached;
         });

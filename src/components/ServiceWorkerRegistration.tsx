@@ -13,8 +13,10 @@ export default function ServiceWorkerRegistration() {
     }
 
     if ("serviceWorker" in navigator) {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+      const swPath = `${basePath}/sw.js`;
       const handleLoad = () => {
-        navigator.serviceWorker.register("/sw.js").catch(() => {
+        navigator.serviceWorker.register(swPath).catch(() => {
           // Ignore registration errors in offline/unsupported cases.
         });
       };

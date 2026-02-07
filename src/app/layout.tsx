@@ -16,14 +16,16 @@ const fraunces = Fraunces({
   display: "swap"
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
   title: "Capybara Quotes",
   description: "Tap a capybara photo to rotate the image and get a fresh quote.",
   applicationName: "Capybara Quotes",
-  manifest: "/manifest.json",
+  manifest: `${basePath}/manifest.json`,
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-180.png"
+    icon: `${basePath}/icons/icon-192.png`,
+    apple: `${basePath}/icons/icon-180.png`
   }
 };
 
