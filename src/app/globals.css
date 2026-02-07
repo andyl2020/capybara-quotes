@@ -1,9 +1,14 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: light;
+  --bg-start: #f9faf7;
+  --bg-end: #edf3ee;
+  --ink: #1f3a2e;
+  --accent-warm: rgba(242, 181, 138, 0.28);
+  --accent-cool: rgba(45, 106, 79, 0.2);
 }
 
 * {
@@ -17,10 +22,28 @@ body {
 
 body {
   margin: 0;
-  color: #1f3a2e;
-  background: radial-gradient(circle at top, rgba(242, 181, 138, 0.35), transparent 55%),
-    radial-gradient(circle at 20% 20%, rgba(45, 106, 79, 0.15), transparent 45%),
-    #fbf8f1;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 12%, var(--accent-warm), transparent 40%),
+    radial-gradient(circle at 88% 20%, var(--accent-cool), transparent 48%),
+    linear-gradient(155deg, var(--bg-start) 0%, #f6efe5 45%, var(--bg-end) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.38;
+  background-image: radial-gradient(rgba(31, 58, 46, 0.15) 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+}
+
+@media (max-width: 640px) {
+  body::before {
+    opacity: 0.26;
+  }
 }
 
 main {

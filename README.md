@@ -1,4 +1,4 @@
-﻿# Capybara Quotes
+# Capybara Quotes
 
 A tiny Next.js PWA with two capybaras that each pull from a different quote pool. Tap a capybara to get a calm or motivational quote, with a smooth transition and offline support.
 

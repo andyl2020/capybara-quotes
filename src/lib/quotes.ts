@@ -1,4 +1,4 @@
-﻿export type Quote = {
+export type Quote = {
   text: string;
   author?: string;
 };
@@ -45,6 +45,8 @@ export const quotePools: Record<QuotePool, Quote[]> = {
   calm: calmQuotes,
   motivation: motivationQuotes
 };
+
+export const allQuotes: Quote[] = [...calmQuotes, ...motivationQuotes];
 
 export function getRandomQuote(pool: Quote[], previousText?: string | null): Quote {
   if (pool.length === 0) {

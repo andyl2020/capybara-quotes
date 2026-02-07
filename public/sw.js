@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "capybara-quotes-v1";
+const CACHE_NAME = "capybara-quotes-v1";
 const PRECACHE_URLS = [
   "/",
   "/manifest.json",
