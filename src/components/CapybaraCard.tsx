@@ -29,11 +29,8 @@ export default function CapybaraCard({ title, subtitle, imageSrc, alt, onSelect 
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-moss-900/5 via-moss-900/5 to-moss-900/65" />
-          <div className="absolute left-3 top-3 rounded-full border border-white/55 bg-moss-900/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/95 sm:left-4 sm:top-4 sm:text-xs">
-            New photo
-          </div>
           <div className="absolute bottom-0 left-0 right-0 p-4 text-white sm:p-5">
-            <p className="font-[var(--font-fraunces)] text-xl leading-tight sm:text-2xl">{title}</p>
+            <p className="font-[var(--font-display)] text-xl leading-tight sm:text-2xl">{title}</p>
             <p className="mt-1.5 text-xs text-white/85 sm:mt-2 sm:text-sm">{subtitle}</p>
           </div>
         </div>

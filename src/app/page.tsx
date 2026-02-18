@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import CapybaraCard from "@/components/CapybaraCard";
 import QuoteBox from "@/components/QuoteBox";
-import InstallButton from "@/components/InstallButton";
 import { allQuotes, getRandomQuote, type Quote } from "@/lib/quotes";
 
 type CapybaraImage = {
@@ -224,27 +223,24 @@ export default function Home() {
       <div className="pointer-events-none absolute right-[-7rem] top-16 h-64 w-64 rounded-full bg-coral/25 blur-3xl sm:right-[-5rem] sm:top-24 sm:h-72 sm:w-72" />
       <div className="pointer-events-none absolute left-[-8rem] bottom-[-6rem] h-72 w-72 rounded-full bg-moss-700/18 blur-3xl sm:left-[-6rem] sm:h-80 sm:w-80" />
       <div className="relative mx-auto w-full max-w-6xl">
-        <header className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <header className="grid gap-4">
           <div>
             <p className="inline-flex rounded-full border border-moss-700/20 bg-white/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-moss-700/85 sm:px-4 sm:text-xs">
               Capybara Quotes
             </p>
-            <h1 className="mt-4 max-w-4xl font-[var(--font-fraunces)] text-[clamp(2rem,6.4vw,4.8rem)] leading-[1.03] text-moss-900">
+            <h1 className="mt-4 max-w-4xl font-[var(--font-display)] text-[clamp(2.1rem,6.8vw,4.8rem)] leading-[1.03] text-moss-900">
               One capybara. Better vibes. Every tap.
             </h1>
             <p className="mt-3 max-w-2xl text-sm text-moss-700/90 sm:text-base lg:text-lg">
-              Tap the photo to rotate to a different capybara picture and pull a new quote in the same moment.
+              Tap the capybara to get a new photo and quote.
             </p>
-          </div>
-          <div className="lg:justify-self-end">
-            <InstallButton />
           </div>
         </header>
 
-        <section className="mt-6 grid items-stretch gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,1fr)] xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
+        <section className="mt-6 grid items-start gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,1fr)] xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
           <CapybaraCard
             title="Capybara Gallery"
-            subtitle={`Photo ${currentImageIndex + 1} of ${CAPYBARA_IMAGES.length}. Tap for next.`}
+            subtitle="Tap for a new photo and a new quote."
             imageSrc={currentImage.src}
             alt={currentImage.alt}
             onSelect={handleRefresh}

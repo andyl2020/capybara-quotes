@@ -33,6 +33,22 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // Always try the network first for navigation so updates show up immediately.
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put("./", responseClone));
+          }
+          return response;
+        })
+        .catch(() => caches.match("./"))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request)
@@ -43,12 +59,7 @@ self.addEventListener("fetch", (event) => {
           }
           return response;
         })
-        .catch(() => {
-          if (event.request.mode === "navigate") {
-            return caches.match("./");
-          }
-          return cached;
-        });
+        .catch(() => cached);
 
       return cached || fetchPromise;
     })
