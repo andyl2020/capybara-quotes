@@ -2,9 +2,24 @@
 
 ## Project Context
 
-- Project: Capybara Quotes (Next.js App Router + TypeScript PWA).
-- Goal: Mobile-friendly app with two capybara images, separate quote pools, smooth quote animation, offline support, and PWA install.
-- Structure: `src/components/CapybaraCard.tsx`, `src/components/QuoteBox.tsx`, `src/lib/quotes.ts`.
+- Project: Capybara Quotes (Next.js App Router + TypeScript + Tailwind PWA).
+- UX: Mobile-first single-screen app. Tap the capybara gallery card to rotate among 30 images and pull a new quote.
+- Quotes: Two pools (calm/motivation) are defined in `src/lib/quotes.ts`; the UI currently draws from the combined pool.
+- Offline/PWA: `public/sw.js` + `src/components/ServiceWorkerRegistration.tsx`.
+
+## Key Files
+
+- `src/app/page.tsx` (CAPYBARA_IMAGES list, localStorage persistence, tap handler)
+- `src/components/CapybaraCard.tsx`
+- `src/components/QuoteBox.tsx`
+- `src/lib/quotes.ts`
+- `public/sw.js`
+- `src/components/ServiceWorkerRegistration.tsx`
+
+## Development Notes
+
+- In dev (`npm run dev`), the app unregisters any existing service worker and clears `capybara-quotes*` caches to prevent stale UI while iterating.
+- For PWA/offline testing, prefer `npm run build` + `npm run start` in a clean browser profile.
 
 ## Environment Notes
 
